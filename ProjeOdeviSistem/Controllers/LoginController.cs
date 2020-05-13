@@ -43,9 +43,9 @@ namespace ProjeOdeviSistem.Controllers
 
                 await HttpContext.SignInAsync(principal);
 
-                if (!string.IsNullOrEmpty(HttpContext.Request.Query["ReturnUrl"]))
+                if (!string.IsNullOrEmpty(Request.Form["ReturnUrl"]))
                 {
-                    return Redirect(HttpContext.Request.Query["ReturnUrl"]);
+                    return Redirect(Request.Form["ReturnUrl"].ToString());
                 }
                 else
                 {

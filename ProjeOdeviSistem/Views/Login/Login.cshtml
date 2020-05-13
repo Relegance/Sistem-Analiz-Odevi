@@ -25,7 +25,8 @@
             @Html.TextBoxFor(model => model.password, "", new { @class = "form-control", @required = "", @type="password" })
         </div>
 
-        <button type="submit" class="btn btn-primary" value="@Context.Request.Query["ReturnUrl"]">Submit</button>
+        <button type="submit" class="btn btn-primary" name="ReturnUrl" value="@Context.Request.Query["ReturnUrl"]">Submit</button>
+
 
     }
 
