@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "Categories";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Categories</h1>
+<br />
+
+@if (ViewBag.categories != null)
+{
+    <ul class="list-group">
+
+        @foreach (var item in ViewBag.categories)
+        {
+            <li class="list-group-item">@item.categoryName</li>
+        }
+    </ul>
+
+}
+else
+{
+    <div class="alert alert-info">
+        Sistemde Kategori yok.
+    </div>
+
+}

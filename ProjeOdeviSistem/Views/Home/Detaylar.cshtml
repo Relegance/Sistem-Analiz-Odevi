@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "Detaylar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Detaylar</h1>
+
+<br />
+@if (ViewBag.detay != null)
+{
+    @foreach (var item in ViewBag.detay)
+    {
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">@item.product.productName</h5>
+                <p class="card-text">@item.product.productPrice ₺</p>
+                <p class="card-text badge-pill badge-info">Adet: @item.quantity</p>
+            </div>
+        </div>
+        <br />
+    }
+}
+else
+{
+    <div class="alert alert-info">Detaylar gelmedi.</div>
+}

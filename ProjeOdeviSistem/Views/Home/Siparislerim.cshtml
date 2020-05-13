@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "Siparislerim";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Siparislerim</h1>
+
+@if (ViewBag.siparisler != null)
+{
+    @foreach (var item in ViewBag.siparisler)
+    {
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Sipariş No: @item.Id</h5>
+                <p class="card-text">Toplam Fiyat: @item.totalPrice ₺</p>
+                <p class="card-text badge-pill badge-info">Tarih: @item.orderDate</p>
+                <a href="Siparislerim/@item.Id" class="btn btn-info">Sipariş Detayları</a>
+            </div>
+        </div>
+        <br />
+    }
+}
+else
+{
+    <div class="alert alert-info">Hiç siparişiniz yok.</div>
+}

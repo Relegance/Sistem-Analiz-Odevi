@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewData["Title"] = "Anasayfa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (ViewBag.oneri != null)
+{
+<h1>İlginizi Çekebilir</h1>
+<div class="row">
+    @foreach (var item in ViewBag.oneri)
+    {
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="@item.productImage" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">@item.productName | @item.productPrice ₺</h5>
+                <p class="card-text">@item.productDesc</p>
+                <a href="/@item.Id" class="btn btn-primary">Sepete Ekle</a>
+            </div>
+        </div>
+
+    }
+</div>
+}
+
+
+<h1>Ürünler</h1>
+
+
+@if (ViewBag.products != null)
+{
+    <div class="row">
+        @foreach (var item in ViewBag.products)
+        {
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="@item.productImage" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">@item.productName | @item.productPrice ₺</h5>
+                    <p class="card-text">@item.productDesc</p>
+                    <a href="/@item.Id" class="btn btn-primary">Sepete Ekle</a>
+                </div>
+            </div>
+
+        }
+    </div>
+
+}
+else
+{
+    <div class="alert alert-info">
+        Sistemde kayıtlı ürün yok.
+    </div>
+}

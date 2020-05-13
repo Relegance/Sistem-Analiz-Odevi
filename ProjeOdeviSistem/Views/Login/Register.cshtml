@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section head
+{
+    <style>
+        input:invalid {
+            border-color: red;
+        }
+
+        input:valid {
+            border-color: green;
+        }
+
+    </style>
+}
+
+
+<h1>Kayıt Formu</h1>
+<br />
+@if (ViewBag.err != null)
+{
+            <div class="alert alert-warning alert-dismissible text-center" role="alert">
+                @ViewBag.err
+            </div>
+}
+<div class="container">
+
+    <form id="userRegisterForm" method="post">
+        <div class="form-group">
+            <label for="username">İsim</label>
+            <input type="text" class="form-control" name="name" placeholder="Adınız" autocomplete="off" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Email adresiniz" autocomplete="off" required>
+
+        </div>
+        <div class="form-group">
+            <label for="password">Şire</label>
+            <input type="password" class="form-control" name="password" minlength="6" placeholder="Şifre" autocomplete="off" required>
+            <small id="emailHelp" class="form-text text-muted">En az 6 karakter</small>
+        </div>
+        <div class="form-group">
+            <label for="city">Şehir</label>
+            <input type="text" class="form-control" name="city" placeholder="Şehir" minlenght="3" autocomplete="off" required>
+        </div>
+        <div class="form-group">
+            <label for="adress">Adres</label>
+            <input type="text" class="form-control" name="adress" placeholder="Adres" autocomplete="off" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Kayıt ol</button>
+    </form>
+
+</div>

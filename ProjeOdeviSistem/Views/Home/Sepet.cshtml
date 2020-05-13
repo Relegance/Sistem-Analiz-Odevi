@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewData["Title"] = "Sepet";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Sepet</h1>
+<br />
+@if (ViewBag.sepet != null)
+{
+    @foreach (var item in ViewBag.sepet)
+    {
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">@item.product.productName</h5>
+                <p class="card-text">@item.product.productPrice ₺</p>
+                <p class="card-text badge-pill badge-info">Adet: @item.quantity</p>
+                <a href="/sepet/sil/@item.Id" class="btn btn-danger">Sepetten Kaldır</a>
+            </div>
+        </div>
+        <br />
+    }
+    <a class="btn btn-success" href="/sepet/al" onclick="return confirm('Sepeti onaylıyor musun?')">Hızlı Satın Al</a>
+}
+else
+{
+    <div class="alert alert-info">Sepetiniz boş.</div>
+}

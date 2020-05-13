@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewData["Title"] = "Products";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Products</h1>
+
+<br />
+@if (ViewBag.products != null)
+{
+
+    <div class="row">
+        @foreach (var item in ViewBag.products)
+        {
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="@item.productImage" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">@item.productName</h5>
+                    <p class="card-text">@item.productDesc</p>
+                    <p class="card-text">@item.productPrice ₺</p>
+                    <button value="@item.Id" class="btn btn-primary"></button>
+                </div>
+            </div>
+        }
+    </div>
+
+} else
+{
+    <div class="alert alert-info">
+        Sistemde ürün yok.
+    </div>
+
+}
